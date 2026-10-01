@@ -285,6 +285,19 @@ main {
   /* Space between the columns */
   gap: 20px; 
   padding-bottom: 40px;
+  margin: 0 0;
+}
+
+@media (max-width: 700px) {
+    .measurements-grid-container {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 420px) {
+    .measurements-grid-container {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Individual column styling (optional) */
