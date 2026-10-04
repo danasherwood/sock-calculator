@@ -136,7 +136,7 @@ function calculateHeelBaseStitches(heelStitches) {
 function calculateGussetLength(gussetStitches,heelStitches,heelBaseStitches,rowGauge) {
     // length is the number of increase rows for the gusset added to
     // number of rows in the heel turn, divided by row gauge
-    const gussetLength = ((gussetStitches * 2) + (heelStitches - heelBaseStitches) + 2) / rowGauge;
+    const gussetLength = ((gussetStitches * 2) + (heelStitches - heelBaseStitches)) / rowGauge;
 
     return gussetLength;
 }
@@ -220,7 +220,6 @@ function gussetPattern(totalStitches) {
     const gussetStitches = calculateGussetStitches(totalStitches);
     const needle1 = totalStitches / 2;
     const needle2 = needle1 + (gussetStitches * 2);
-
     const pattern = `<h2>Gusset</h2>
 <h3>Set-Up Rounds</h3>
 <p>k instep sts (${needle1} sts on needle 1). k1, pm, m1r, k to 1 st before the end of needle 2, m1l, pm, k1 (${needle1 + 2} sts on needle 2).<br>
@@ -229,7 +228,7 @@ k even.</p>
 <p>Round 1: k instep sts. k1, m1r, k to marker, sm, k to marker, sm, k to 1 st before the end of the needle, m1l, k1.</p>
 <p>Round 2: k even.</p>
 
-<p>Repeat Rounds 1 and 2 a total of ${gussetStitches} times. There are now ${needle1} sts on needle 1 and ${needle2} sts on needle 2.</p>
+<p>Repeat Rounds 1 and 2 a total of ${gussetStitches - 1} times. There are now ${needle1} sts on needle 1 and ${needle2} sts on needle 2, with ${gussetStitches} sts on either side of the center ${needle1} sts.</p>
 `;
     return pattern;
 }
