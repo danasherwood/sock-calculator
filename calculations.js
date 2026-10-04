@@ -136,7 +136,7 @@ function calculateHeelBaseStitches(heelStitches) {
 function calculateGussetLength(gussetStitches,heelStitches,heelBaseStitches,rowGauge) {
     // length is the number of increase rows for the gusset added to
     // number of rows in the heel turn, divided by row gauge
-    const gussetLength = ((gussetStitches * 2) + (heelStitches - heelBaseStitches)) / rowGauge;
+    const gussetLength = ((gussetStitches * 2) + (heelStitches - heelBaseStitches) + 2) / rowGauge;
 
     return gussetLength;
 }
