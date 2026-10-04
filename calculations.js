@@ -176,7 +176,7 @@ k 1 round even.</p>
 <p>Round 1: *kfb, k to 2 sts before the end of the needle, kfb, k1* 2 times total (once per needle).<br>
 Round 2: k even.
 
-<p>Repeat Rounds 1 and 2 until there are ${totalStitches} sts in total (${totalStitches / 2} per needle.) ${toeRows} worked.</p>`;
+<p>Repeat Rounds 1 and 2 until there are ${totalStitches} sts in total (${totalStitches / 2} per needle.) ${toeRows} rows worked.</p>`;
 
     return pattern;
 }
@@ -197,9 +197,10 @@ function footPattern(totalStitches,footLength,castOn,rowGauge) {
     const gussetStitches = calculateGussetStitches(totalStitches);
     const gussetLength = calculateGussetLength(gussetStitches,heelStitches,heelBaseStitches,rowGauge);
 
-    const knitFootLength = Math.round(footLength - gussetLength - 0.25);
+    const knitFootLength = footLength - gussetLength - 0.25;
     const toeRows = calculateToeRows(totalStitches,castOn);
     const footRows = Math.round(knitFootLength * rowGauge) - toeRows;
+    console.log(knitFootLength,gussetLength)
 
     const pattern = `<h2>Foot</h2>
 <p>Work in even rounds until sock measures ${knitFootLength} inches from the cast-on. Approximately ${footRows} rows worked after toe section.</p>
