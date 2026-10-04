@@ -203,7 +203,7 @@ function footPattern(totalStitches,footLength,castOn,rowGauge) {
     console.log(knitFootLength,gussetLength)
 
     const pattern = `<h2>Foot</h2>
-<p>Work in even rounds until sock measures ${knitFootLength} inches from the cast-on. Approximately ${footRows} rows worked after toe section.</p>
+<p>Work in even rounds until sock measures ${Math.round(knitFootLength * 100) / 100} inches from the cast-on. Approximately ${footRows} rows worked after toe section.</p>
 `;
 
     return pattern;
