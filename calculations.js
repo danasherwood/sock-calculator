@@ -306,7 +306,7 @@ function legPattern(footLength, rowGauge) {
 <p>Return to working in the round.</p>
 
 <p>[s1,k1] across the heel flap to 1 st before the gusset st, ssk. (needle 2)<br>
-k instep sts (needle 1). k1, k2tog, k to the end of the round (needle 2).</p>
+k instep sts (needle 1). k2tog, k to the end of the round (needle 2).</p>
 
 <p>Continue in stockinette until leg measures ${legLength} inches, approximately ${legRows} rows, or until desired length.<p>
 `;
