@@ -273,7 +273,7 @@ Row 4: (WS) p to 1 st before the last wrapped st, wrap the next st, turn work.</
  * @returns {string} - pattern for the heel flap section
  */
 function heelFlapPattern(totalStitches) {
-    const heelStitches = calculateHeelStitches(totalStitches) - 2;
+    const heelStitches = calculateHeelStitches(totalStitches);
     const needle2 = totalStitches / 2 + 2;
 
     const pattern = `
