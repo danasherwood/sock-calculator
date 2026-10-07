@@ -298,7 +298,7 @@ Row 2: (WS) s1 wyif, p to 1 st before the gusset sts, p2tog, turn work.</p>
  * @returns {string} - pattern for the leg section
  */
 function legPattern(footLength, rowGauge) {
-    const legLength = footLength - 2;
+    const legLength = footLength - 2.25;
     const legRows = Math.round(legLength * rowGauge);
 
     const pattern = `
@@ -308,7 +308,7 @@ function legPattern(footLength, rowGauge) {
 <p>[s1,k1] across the heel flap to 1 st before the gusset st, ssk. (needle 2)<br>
 k instep sts (needle 1). k2tog, k to the end of the round (needle 2).</p>
 
-<p>Continue in stockinette until leg measures ${legLength} inches, approximately ${legRows} rows, or until desired length.<p>
+<p>Continue in stockinette until leg measures ${legLength} inches, approximately ${legRows} rows, or until 2 inches less than the desired length.<p>
 `;
 
     return pattern;
