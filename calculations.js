@@ -174,7 +174,7 @@ function toePattern(footCircumference,stitchGauge,castOn) {
 k 1 round even.</p>
 
 <p>Round 1: *kfb, k to 2 sts before the end of the needle, kfb, k1* 2 times total (once per needle).<br>
-Round 2: k even.
+Round 2: k all sts.
 
 <p>Repeat Rounds 1 and 2 until there are ${totalStitches} sts in total (${totalStitches / 2} per needle.) ${toeRows} rows worked.</p>`;
 
@@ -203,7 +203,7 @@ function footPattern(totalStitches,footLength,castOn,rowGauge) {
     console.log(knitFootLength,gussetLength)
 
     const pattern = `<h2>Foot</h2>
-<p>Work in even rounds until sock measures ${Math.round(knitFootLength * 100) / 100} inches from the cast-on. Approximately ${footRows} rows worked after toe section.</p>
+<p>k every round until sock measures ${Math.round(knitFootLength * 100) / 100} inches from the cast-on. Approximately ${footRows} rows worked after toe section.</p>
 `;
 
     return pattern;
@@ -221,12 +221,13 @@ function gussetPattern(totalStitches) {
     const needle1 = totalStitches / 2;
     const needle2 = needle1 + (gussetStitches * 2);
     const pattern = `<h2>Gusset</h2>
+<p>The sts on needle 1 are the instep of the sock and the sts on needle 2 are the sole. BOR is the start of needle 1.</p> 
 <h3>Set-Up Rounds</h3>
-<p>k instep sts (${needle1} sts on needle 1). k1, pm, m1r, k to 1 st before the end of needle 2, m1l, pm, k1 (${needle1 + 2} sts on needle 2).<br>
-k even.</p>
+<p>Needle 1: k instep sts (${needle1} sts). <br>Needle 2: k1, pm, m1r, k to 1 st before the end of needle 2, m1l, pm, k1 (${needle1 + 2} sts).<br>
+k 1 round.</p>
 
-<p>Round 1: k instep sts. k1, m1r, k to marker, sm, k to marker, sm, k to 1 st before the end of the needle, m1l, k1.</p>
-<p>Round 2: k even.</p>
+<p>Round 1: k instep sts. k1, m1r, k to marker, sm, k to marker, sm, k to 1 st before the end of the needle, m1l, k1.<br>
+Round 2: k even.</p>
 
 <p>Repeat Rounds 1 and 2 a total of ${gussetStitches - 1} times. There are now ${needle1} sts on needle 1 and ${needle2} sts on needle 2, with ${gussetStitches} sts on either side of the center ${needle1} sts.</p>
 `;
@@ -245,21 +246,25 @@ function heelTurnPattern(totalStitches) {
     const heelBaseStitches = calculateHeelBaseStitches(heelStitches);
     const heelRows = heelStitches - heelBaseStitches;
     const rowRepeats = (heelRows / 2) - 1;
+    const gussetStitches = calculateGussetStitches(totalStitches);
+    const needle2 = (totalStitches/2) + 2*(gussetStitches - 1);
 
     const pattern = `<h2>Heel Turn</h2>
-<p>Set-Up: k instep sts (to the end of needle 1). k to marker, sm.</p>
+<p>Set-Up: k instep sts. k to first marker, sm.</p>
 
-<p>The heel turn is now worked back and forth across the ${heelStitches} sts between the markers on needle 2.</p>
+<p>The heel turn is now worked flat across the ${heelStitches} sts between the markers on needle 2.</p>
 
 <p>Row 1: (RS) k to 1 st before the second marker, wrap the next st, turn work.<br>
 Row 2: (WS) p to 1 st before the marker, wrap the next st, turn work.<br>
 Row 3: (RS) k to 1 st before the last wrapped st, wrap the next st, turn work.<br>
 Row 4: (WS) p to 1 st before the last wrapped st, wrap the next st, turn work.</p>
 
-<p>Repeat Rows 3 and 4 a total of ${rowRepeats} times. Ending on a WS row. ${heelBaseStitches} sts now remain unwrapped in the center of the heel sts.</p>
+<p>Repeat Rows 3 and 4 a total of ${rowRepeats} times, ending after a WS row. ${heelBaseStitches} sts now remain unwrapped in the center of the heel sts.</p>
 
-<p>(RS) k to first wrapped st, lift and k all wrapped sts but the last wrapped st. Work the final wrapped st and first following st together as ssk. Turn work. <br>
-(WS) s1 wyif, p to first wrapped st, lift and p all wrapped sts but the last wrapped st. Work the final wrapped st and first following st together as p2tog. Turn work.</p>
+<p>(RS) k to first wrapped st, lift and k all wrapped sts but the last wrapped st. Work the final wrapped st and first st after the marker (remove marker) together as ssk, turn work. <br>
+(WS) s1 wyif, p to first wrapped st, lift and p all wrapped sts but the last wrapped st. Work the final wrapped st and first st after the marker (remove marker) together as p2tog, turn work.</p>
+
+<p>${needle2} sts remain on needle 2.</p>
 `;
 
     return pattern; 
@@ -278,12 +283,12 @@ function heelFlapPattern(totalStitches) {
 
     const pattern = `
 <h2>Heel Flap</h3>
-<p>The heel flap is worked back and forth across the remaining ${heelStitches} heel sts.</p>
+<p>The heel flap is worked flat across the remaining ${heelStitches} heel sts. There is now a gap on either side of the heel sts that separates the heel sts from the gusset sts.</p>
 
 <p>Row 1: (RS) s1, [k1,s1] to 1 st before the gusset sts, ssk, turn work.<br>
 Row 2: (WS) s1 wyif, p to 1 st before the gusset sts, p2tog, turn work.</p>
 
-<p>Repeat Rows 1 and 2 until 1 st remains in each side of the gusset ending on a WS row. There should be ${needle2} sts remaining on needle 2.</p>
+<p>Repeat Rows 1 and 2 until 1 st remains in each gusset, ending after a WS row. There should be ${needle2} sts remaining on needle 2.</p>
 `;
 
     return pattern;
@@ -308,7 +313,7 @@ function legPattern(footLength, rowGauge) {
 <p>[s1,k1] across the heel flap to 1 st before the gusset st, ssk. (needle 2)<br>
 k instep sts (needle 1). k2tog, k to the end of the round (needle 2).</p>
 
-<p>Continue in stockinette until leg measures ${legLength} inches, approximately ${legRows} rows, or until 2 inches less than the desired length.<p>
+<p>k every round until leg measures ${legLength} inches, approximately ${legRows} rows, or until 2 inches less than the desired length.<p>
 `;
 
     return pattern;
