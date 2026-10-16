@@ -173,7 +173,7 @@ function toePattern(footCircumference,stitchGauge,castOn) {
 <p>Using Judy's Magic Cast-On method, cast on ${castOn} sts such that ${stitchesPerNeedle} are on each needle.<br>
 k 1 round even.</p>
 
-<p>Round 1: *kfb, k to 2 sts before the end of the needle, kfb, k1* 2 times total (once per needle).<br>
+<p>Round 1: [kfb, k to 2 sts before the end of the needle, kfb, k1] twice (once per needle).<br>
 Round 2: k all sts.
 
 <p>Repeat Rounds 1 and 2 until there are ${totalStitches} sts in total (${totalStitches / 2} per needle.) ${toeRows} rows worked.</p>`;
@@ -254,15 +254,15 @@ function heelTurnPattern(totalStitches) {
 
 <p>The heel turn is now worked flat across the ${heelStitches} sts between the markers on needle 2.</p>
 
-<p>Row 1: (RS) k to 1 st before the second marker, wrap the next st, turn work.<br>
-Row 2: (WS) p to 1 st before the marker, wrap the next st, turn work.<br>
-Row 3: (RS) k to 1 st before the last wrapped st, wrap the next st, turn work.<br>
-Row 4: (WS) p to 1 st before the last wrapped st, wrap the next st, turn work.</p>
+<p>Row 1: (RS) k to 1 st before the second marker, w&ampt.<br>
+Row 2: (WS) p to 1 st before the marker, w&ampt.<br>
+Row 3: (RS) k to 1 st before the last wrapped st,w&ampt.<br>
+Row 4: (WS) p to 1 st before the last wrapped st, w&ampt.</p>
 
-<p>Repeat Rows 3 and 4 a total of ${rowRepeats} times, ending after a WS row. ${heelBaseStitches} sts now remain unwrapped in the center of the heel sts.</p>
+<p>Repeat Rows 3 and 4 a total of ${rowRepeats} times, ending after a WS row. ${heelBaseStitches} sts remain unwrapped in the center of the heel sts.</p>
 
 <p>(RS) k to first wrapped st, lift and k all wrapped sts but the last wrapped st. Work the final wrapped st and first st after the marker (remove marker) together as ssk, turn work. <br>
-(WS) s1 wyif, p to first wrapped st, lift and p all wrapped sts but the last wrapped st. Work the final wrapped st and first st after the marker (remove marker) together as p2tog, turn work.</p>
+(WS) sl1 wyif, p to first wrapped st, lift and p all wrapped sts but the last wrapped st. Work the final wrapped st and first st after the marker (remove marker) together as p2tog, turn work.</p>
 
 <p>${needle2} sts remain on needle 2.</p>
 `;
@@ -285,8 +285,8 @@ function heelFlapPattern(totalStitches) {
 <h2>Heel Flap</h3>
 <p>The heel flap is worked flat across the remaining ${heelStitches} heel sts. There is now a gap on either side of the heel sts that separates the heel sts from the gusset sts.</p>
 
-<p>Row 1: (RS) s1, [k1,s1] to 1 st before the gusset sts, ssk, turn work.<br>
-Row 2: (WS) s1 wyif, p to 1 st before the gusset sts, p2tog, turn work.</p>
+<p>Row 1: (RS) sl1, [k1,sl1] to 1 st before the gusset sts, ssk, turn work.<br>
+Row 2: (WS) sl1 wyif, p to 1 st before the gusset sts, p2tog, turn work.</p>
 
 <p>Repeat Rows 1 and 2 until 1 st remains in each gusset, ending after a WS row. There should be ${needle2} sts remaining on needle 2.</p>
 `;
@@ -310,7 +310,7 @@ function legPattern(footLength, rowGauge) {
 <h2>Leg</h2>
 <p>Return to working in the round.</p>
 
-<p>[s1,k1] across the heel flap to 1 st before the gusset st, ssk. (needle 2)<br>
+<p>[sl1,k1] across the heel flap to 1 st before the gusset st, ssk. (needle 2)<br>
 k instep sts (needle 1). k2tog, k to the end of the round (needle 2).</p>
 
 <p>k every round until leg measures ${legLength} inches, approximately ${legRows} rows, or until 2 inches less than the desired length.<p>
@@ -335,11 +335,11 @@ function cuffPattern(totalStitches, rowGauge) {
     // if the total number of stitches is a multiple of 4, do cuff in k2p2
     // otherwise, cuff is k1p1
     if (totalStitches % 4 === 0) {
-        pattern += `<p>*k2,p2* repeat until cuff measures 2 inches, approximately ${cuffRows} rows, or until desired length.</p>`;
+        pattern += `<p>Round 1: *k2, p2; repeat from * to end.</p>`;
     } else {
-        pattern += `<p>*k1,p1* repeat until cuff measures 2 inches, approximately ${cuffRows} rows, or until desired length.</p>`;
+        pattern += `<p>Round 1: *k1,p1; repeat from * to end.</p>`;
     }
-    pattern += `<p>Bind off using a stretchy bind off.`;
+    pattern += `<p>Repeat Round 1 until cuff measures 2 inches, approximately ${cuffRows} rows, or until desired length. Bind off using a stretchy bind off.</p>`;
     return pattern;
 }
 
@@ -389,6 +389,7 @@ function run() {
     errorBox.textContent = "";
     output.innerHTML = generateSockPattern(footCircumference, footLength, stitchGauge, rowGauge);
     actions.hidden = false;
+    document.getElementById("abbreviations").hidden = false;
 }
 
 function copyPattern() {
