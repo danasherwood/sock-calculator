@@ -201,7 +201,7 @@ main {
 
 @media (min-width: 1921px), (min-width: 1200px) and (min-resolution: 2dppx) {
     .hero-parallax {
-        background-image: url("./images/hero2880.jpg");
+        background-image: url("/Images/hero2880.jpg");
     }
 }
 
