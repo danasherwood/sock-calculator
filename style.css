@@ -192,7 +192,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url("images/hero.jpg");
+    background-image: url("Images/hero.jpg");
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
