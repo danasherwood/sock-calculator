@@ -171,6 +171,7 @@ main {
     box-shadow: 0px 0px 5px rgba(37, 17, 1, 0.25);
     color: var(--coffee-bean);
     text-decoration: none;
+    font-weight: 600;
     font-size: 1em;
     padding: 14px 40px;
     border-radius: 50px;
@@ -518,6 +519,7 @@ button.tertiary {
     font-weight: 600;
     border: none;
     border-radius: 30px;
+    box-shadow: 0px 0px 5px rgba(37, 17, 1, 0.25);
     background-color: var(--dusty-olive);
     color: var(--porcelain);
     cursor: pointer;
@@ -526,6 +528,8 @@ button.tertiary {
 
 button.tertiary:hover {
     background-color: var(--coffee-bean);
+    transform: scale(1.03);
+    box-shadow: 0px 0px 5px rgba(37, 17, 1, 0.30);
 }
 
 button.tertiary:active {
