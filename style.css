@@ -88,6 +88,7 @@ main {
     padding: 24px 40px;
     position: sticky;
     top: 0;
+    z-index: 10;
 }
 
 .site-header-inner {
@@ -99,7 +100,7 @@ main {
 }
 
 .site-header .logo a{
-    font-family: Georgia, 'Times New Roman', serif;
+    font-family: 'Playfair Display', serif;
     font-weight: 700;
     font-size: 1.3em;
     color: var(--porcelain);
@@ -149,9 +150,19 @@ main {
     font-family: 'Playfair Display', serif;
     font-optical-sizing: auto;
     font-weight: 700;
-    font-size: 2.8em;
+    font-size: 5em;
     color: var(--coffee-bean);
-    margin: 0 0 28px;
+    margin: 0px;
+    text-shadow: 2px 4px 4px rgba(37, 17, 1, 0.5);
+
+}
+
+.hero h2 {
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-size: 1.5em;
+    color: var(--porcelain);
+    text-shadow: 1px 2px 2px rgba(37, 17, 1, 0.5);
 }
 
 .hero .button {
@@ -173,10 +184,59 @@ main {
     box-shadow: 0px 0px 5px rgba(37, 17, 1, 0.3);
 }
 
+/* ---------- Parallax hero ---------- */
+
+.hero-parallax {
+    position: relative;
+    min-height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("images/hero.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@media (min-width: 1921px), (min-width: 1200px) and (min-resolution: 2dppx) {
+    .hero-parallax {
+        background-image: url("images/hero2880.jpg");
+    }
+}
+
+.hero-parallax::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+}
+
+.hero-parallax .hero-inner {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-parallax h1 {
+    color: var(--porcelain);
+}
+
+.hero-parallax p {
+    color: var(--porcelain);
+    font-size: 1.25em;
+    max-width: 600px;
+    margin: 0 auto 28px;
+}
+
+@media (max-width: 1024px) {
+    .hero-parallax {
+        background-attachment: scroll;
+    }
+}
+
 /* ---------- Headline band ---------- */
 
 .headline-band {
-    background-color: var(--dusty-olive);
+    background-color: var(--porcelain);
     padding: 90px 20px;
 }
 
@@ -195,16 +255,18 @@ main {
 }
 
 .headline-text h2 {
-    color: var(--porcelain);
+    font-family: 'Playfair Display', serif;
+    font-weight: 300;
+    color: var(--coffee-bean);
     font-size: 1.8em;
-    margin: 0 0 16px;
+    margin: 0 0 10px;
 }
 
 .headline-text ul {
     list-style: disc;
     padding-left: 1.2em;
     margin: 0;
-    color: var(--porcelain);
+    color: var(--coffee-bean);
 }
 
 .headline-text li {
@@ -224,6 +286,36 @@ main {
     .headline-text ul {
         text-align: left;
     }
+}
+
+.project-card {
+    display: block;
+    text-decoration: none;
+    border: 0;
+}
+
+.project-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    transition: transform 0.2s ease;
+}
+
+.project-card:hover img {
+    transform: scale(1.02);
+}
+
+.project-caption {
+    display: block;
+    margin-top: 12px;
+    color: var(--coffee-bean);
+    font-weight: 600;
+    transition: color 0.15s ease;
+}
+
+.project-card:hover .project-caption {
+    color: var(--pale-slate);
 }
 
 /* ---------- Image section ---------- */

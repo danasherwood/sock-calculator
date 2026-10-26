@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculator — Sock Pattern Calculator</title>
+    <title>SockCrafter - Home</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
@@ -25,135 +25,47 @@
     <header class="site-header">
         <div class="site-header-inner">
             <span class="logo">
-            <a href="index.html">Sock Calculator</a></span>
+            <a href="index.html">SockCrafter</a></span>
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="index.html">Calculator</a></li> <!-- for now until there is a real home page and calculator page -->
+                    <li><a href="calculator.html">Calculator</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <main>
-        <div class="page-intro">
-            <div class="page-intro-inner">
-                <div class="grid-container">
-                    <div class="column">
-                        <h1>Socks that fit every time.</h1>
-                    </div>
-                    <div class="column">
-                        <p>Enter your gauge and foot measurements to generate a custom, toe-up sock pattern.</p>
-                    </div>
-                </div>
+    <section class="hero hero-parallax">
+            <div class="hero-inner">
+                <h1>SockCrafter</h1>
+                <h2>Custom Sock Pattern Calculator</h2>
+                <a href="calculator.html" class="button">Try the Calculator</a>
+            </div>
+        </section>
 
-                <div class="visual-line">
-                </div>
-
+    <section class="headline-band">
+        <div class="headline-inner">
+            <div class="headline-text">
+                <h2>How it works</h2>
+                <ul>
+                    <li>Make a gauge swatch with your yarn of choice.</li>
+                    <li>Measure your stitch and row gauge.</li>
+                    <li>Measure your foot.</li>
+                    <li>Enter your measurements into the calculator.</li>
+                    <li>Generate your custom sock knitting pattern.</li>
+                    <li>Copy the instructions into your favourite notes app and start knitting!</li>
+                </ul>
+            </div>
+            <div class="headline-image">
+                <a href="https://www.ravelry.com/projects/danaknit31/sock-calculator-test-socks" target="_blank" rel="noopener noreferrer" class="project-card">
+                    <img src="images/sock-project.jpg" alt="Toe-up socks knitted with a pattern from this calculator">
+                    <span class="project-caption">See this project on Ravelry →</span>
+                </a>
             </div>
         </div>
+    </section>
 
-        <!-- Form section -->
-        <div class="measurements">
-            <div class="measurements-inner">
-                <h2>Your Measurements</h2>
-                <form>
-                <div class="measurements-grid-container">
-                    <div class="measurements-column">
-                        <!-- Stitch Gauge Field -->
-                         <h5>Stitch Gauge</h5>
-                         <input type="number" id="gaugeSts" min="0" step="0.25" value="8">
-                         <label for="gaugeSts">sts/in</label>
-                         <div class="measurements-visual-line"></div>
-                    </div>
-                    <div class="measurements-column">
-                        <!-- Row Gauge Field -->
-                         <h5>Row Gauge</h5>
-                         <input type="number" id="gaugeRows" step="0.25" value="8">
-                         <label for="gaugeRows">rows/in</label>
-                         <div class="measurements-visual-line"></div>
-                    </div>
-                    <div class="measurements-column">
-                        <!-- Foot Circumference Field -->
-                        <h5>Foot Circumference</h5>
-                        <input type="number" id="footCircumference" step="0.1" value="8.0">
-                        <label for="footCircumference">inches</label>
-                        <div class="measurements-visual-line"></div>
-                    </div>
-                    <div class="measurements-column">
-                        <!-- Foot Length -->
-                         <h5>Foot Length</h5>
-                         <input type="number" id="footLength" step="0.1" value="9.5">
-                         <label for="footLength">inches</label>
-                         <div class="measurements-visual-line"></div>
-                    </div>
-                </div>
-                </form>
-
-                <!-- Generate Button -->
-                <button type="button" class="tertiary" onclick="run()">
-                    Generate Pattern
-                </button>
-                <p id="error" class="error" role="alert"></p>
-
-                <div class="visual-line"></div>
-            </div>
-        </div>
-
-        <section class="result">
-            <div class="result-inner">
-                <div class="result-header">
-                    <h2>Your Pattern</h2>
-                    <div id="actions" class="actions" hidden>
-                        <button type="button" class="secondary" id="copyBtn" onclick="copyPattern()">Copy</button>
-                    </div>
-                </div>
-
-                <div class="result-columns">
-                    <div id="output">
-                        <p class="placeholder">Enter your measurements and click Generate Pattern. Your instructions will appear here.</p>
-                    </div>
-
-                    <aside id="abbreviations" class="abbreviations" hidden>
-                        <h3>Abbreviations</h3>
-                        <dl>
-                            <dt>BOR</dt><dd>beginning of round</dd>
-                            <dt>k</dt><dd>knit</dd>
-                            <dt>kfb</dt><dd>knit front and back (1 st increased)</dd>
-                            <dt>k2tog</dt><dd>knit two together (1 st decreased)</dd>
-                            <dt>m1r</dt><dd>make 1 right (1 st increased)</dd>
-                            <dt>m1l</dt><dd>make 1 left (1 st increased)</dd>
-                            <dt>p</dt><dd>purl</dd>
-                            <dt>pm</dt><dd>place marker</dd>
-                            <dt>p2tog</dt><dd>purl two together (1 st decreased)</dd>
-                            <dt>RS</dt><dd>right side</dd>
-                            <dt>sl</dt><dd>slip stitch purlwise</dd>
-                            <dt>sm</dt><dd>slip marker</dd>
-                            <dt>ssk</dt><dd>slip, slip, knit (1 st decreased)</dd>
-                            <dt>st(s)</dt><dd>stitches</dd>
-                            <dt>WS</dt><dd>wrong side</dd>
-                            <dt>w&t</dt><dd>wrap and turn</dd>
-                            <dt>wyif</dt><dd>with yarn in front</dd>
-                            <dt>[...]</dt><dd>repeat instructions within brackets</dd>
-                        </dl>
-
-                        <hr>
-
-                        <h3>Resources</h3>
-                        <ul class="resource-links">
-                            <li><a href="https://youtu.be/GV9UaFgZ6Q0?si=V9ybV3lLXJHs1LQl">Judy's Magic Cast-On</a></li>
-                            <li><a href="https://youtu.be/G4GxFvi4KD0?si=pUvtXuMMI3OI9E_I">Wrap and Turn</a></li>
-                            <li><a href="https://youtu.be/C-GqitE8Qt8?si=ozqvqT7lQs5WnHl8">Jeny's Surprisingly Stretchy Bind-Off</a></li>
-                        </ul>
-                    </aside>
-                </div>
-
-                <!-- <div class="visual-line"></div> -->
-            </div>
-            </section>
-    </main>
-
-    <footer class="site-footer">
+     <footer class="site-footer">
         <div class="footer-inner">
             <div class="footer-col footer-about">
                 <p class="footer-name">Created by Dana Sherwood</p>
@@ -181,6 +93,5 @@
         </div>
     </footer>
 
-    <script src="calculations.js"></script>
 </body>
 </html>
