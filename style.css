@@ -560,6 +560,7 @@ button.tertiary:active {
     border: 1px solid var(--dusty-olive);
     border-radius: 20px;
     padding: 20px;
+    margin: 20px;
     color: var(--coffee-bean);
 }
 
